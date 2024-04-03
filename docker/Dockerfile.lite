@@ -9,5 +9,7 @@ COPY --from=0 /boilerplate.zip /boilerplate.zip
 COPY ./entrypoint.sh /
 VOLUME ["/koishi"]
 WORKDIR "/koishi"
+RUN useradd -m koishi
+USER koishi
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["yarn", "start"]
